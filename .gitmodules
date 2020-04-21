@@ -1,0 +1,3 @@
+[submodule "LWDviz/vendor/spdlog"]
+	path = LWDviz/vendor/spdlog
+	url = https://github.com/gabime/spdlog
