@@ -1,0 +1,2 @@
+# LWDviz
+Lightweight Datavisualisation Tool
