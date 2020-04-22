@@ -2,10 +2,12 @@
 
 #ifdef LV_PLATFORM_WINDOWS
 	#ifdef LV_BUILD_DLL
-		#define	LVDVIZ_API __declspec(dllexport)
+		#define	LWDVIZ_API __declspec(dllexport)
 	#else
 		#define	LVDVIZ_API __declspec(dllimport)
 	#endif
 #else
 	#error LWDviz only supports Windows!
 #endif
+
+#define BIT(x) (1 << x)

@@ -1,9 +1,9 @@
 #pragma once
 
-#include "core.h"
+#include "LVcore.h"
 
 namespace lv {
-	class LVDVIZ_API Application
+	class LWDVIZ_API Application
 	{
 	public:
 		Application();

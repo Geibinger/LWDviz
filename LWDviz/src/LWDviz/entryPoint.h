@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef LV_PLATTFORM_WINDOWS
+#ifdef LV_PLATFORM_WINDOWS
 
 extern lv::Application* lv::createApplication();
 

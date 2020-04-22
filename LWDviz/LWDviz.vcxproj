@@ -143,9 +143,13 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="applicationEvent.h" />
+    <ClInclude Include="event.h" />
+    <ClInclude Include="keyEvent.h" />
+    <ClInclude Include="mouseEvent.h" />
     <ClInclude Include="src\LWDviz.h" />
     <ClInclude Include="src\LWDviz\application.h" />
-    <ClInclude Include="src\LWDviz\core.h" />
+    <ClInclude Include="src\LWDviz\LVcore.h" />
     <ClInclude Include="src\LWDviz\entryPoint.h" />
     <ClInclude Include="src\LWDviz\log.h" />
   </ItemGroup>

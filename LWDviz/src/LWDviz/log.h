@@ -1,11 +1,11 @@
 #pragma once
 
-#include "core.h"
+#include "LVcore.h"
 #include "spdlog/spdlog.h"
 #include <memory>
 
 namespace lv {
-	class LVDVIZ_API log
+	class LWDVIZ_API log
 	{
 	public:
 		static void init();
