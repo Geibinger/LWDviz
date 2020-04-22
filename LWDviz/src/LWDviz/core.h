@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef LV_PLATTFORM_WINDOWS
+#ifdef LV_PLATFORM_WINDOWS
 	#ifdef LV_BUILD_DLL
 		#define	LVDVIZ_API __declspec(dllexport)
 	#else
