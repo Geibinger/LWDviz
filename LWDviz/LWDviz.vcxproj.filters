@@ -5,11 +5,26 @@
       <UniqueIdentifier>{25B674BF-1158-9F95-FA12-B3E9E65326E6}</UniqueIdentifier>
     </Filter>
     <Filter Include="LWDviz\Events">
-      <UniqueIdentifier>{e3510c26-af8f-4f9d-b0fe-ae3925eeb194}</UniqueIdentifier>
+      <UniqueIdentifier>{69664513-D526-C149-9E61-0AC70AE10526}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\LWDviz.h" />
+    <ClInclude Include="src\LWDviz\Events\applicationEvent.h">
+      <Filter>LWDviz\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LWDviz\Events\event.h">
+      <Filter>LWDviz\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LWDviz\Events\keyEvent.h">
+      <Filter>LWDviz\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LWDviz\Events\mouseEvent.h">
+      <Filter>LWDviz\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LWDviz\LVcore.h">
+      <Filter>LWDviz</Filter>
+    </ClInclude>
     <ClInclude Include="src\LWDviz\application.h">
       <Filter>LWDviz</Filter>
     </ClInclude>
@@ -18,21 +33,6 @@
     </ClInclude>
     <ClInclude Include="src\LWDviz\log.h">
       <Filter>LWDviz</Filter>
-    </ClInclude>
-    <ClInclude Include="src\LWDviz\LVcore.h">
-      <Filter>LWDviz</Filter>
-    </ClInclude>
-    <ClInclude Include="event.h">
-      <Filter>LWDviz\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="keyEvent.h">
-      <Filter>LWDviz\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="applicationEvent.h">
-      <Filter>LWDviz\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="mouseEvent.h">
-      <Filter>LWDviz\Events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

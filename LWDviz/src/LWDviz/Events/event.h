@@ -1,10 +1,11 @@
 #pragma once
 
-#include "src/LWDviz/LVcore.h"
+#include "LWDviz/LVcore.h"
 #include <string>
 #include <functional>
 
 namespace lv {
+
 	enum class EventType {
 		None = 0,
 		WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
@@ -43,4 +44,27 @@ namespace lv {
 	protected:
 		bool m_handled = false;
 	};
+
+	class EventDispatcher {
+		template<typename T>
+		using EventFn = std::function<bool(T&)>;
+	public:
+		EventDispatcher(Event& event)
+			: m_event(event) {}
+
+		template<typename T>
+		bool dispatch(EventFn<T> func) {
+			if (m_event.getEventType() = T::getStaticType()) {
+				m_event.m_handled = func(*(T*)&m_event);
+				return true;
+			}
+			return false;
+		}
+	private:
+		Event& m_event;
+	};
+
+	inline std::ostream& operator<<(std::ostream& os, const Event& e) {
+		return os << e.toString();
+	}
 }
