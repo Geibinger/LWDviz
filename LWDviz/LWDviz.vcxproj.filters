@@ -34,6 +34,11 @@
     <ClInclude Include="src\LWDviz\log.h">
       <Filter>LWDviz</Filter>
     </ClInclude>
+    <ClInclude Include="src\lwpch.h" />
+    <ClInclude Include="src\LWDviz\window.h" />
+    <ClInclude Include="src\Platforms\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\LWDviz\layer.h" />
+    <ClInclude Include="src\LWDviz\layerStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\LWDviz\application.cpp">
@@ -42,5 +47,9 @@
     <ClCompile Include="src\LWDviz\log.cpp">
       <Filter>LWDviz</Filter>
     </ClCompile>
+    <ClCompile Include="src\lwpch.cpp" />
+    <ClCompile Include="src\Platforms\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\LWDviz\layer.cpp" />
+    <ClCompile Include="src\LWDviz\layerStack.cpp" />
   </ItemGroup>
 </Project>

@@ -1,11 +1,8 @@
 #pragma once
-
-#include <sstream>
-
 #include "event.h"
 
 
-namespace lv {
+namespace lw {
 
 	class LWDVIZ_API KeyEvent : public Event{
 	public:

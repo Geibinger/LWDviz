@@ -1,23 +1,59 @@
-#include "application.h"
+#include "lwpch.h"
 
-#include "Events/applicationEvent.h"
-#include "log.h"
+#include "application.h"
 #include "Events/event.h"
 
-namespace lv {
+#include <GLFW/glfw3.h>
+
+namespace lw {
+
+#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 	Application::Application()
 	{
+		m_window = std::unique_ptr<Window>(Window::create());
+		m_window->setEventCallback(BIND_EVENT_FN(onEvent));
 	}
 
 
-	Application::~Application()
-	{
-	}
-
+	Application::~Application() {}
+	
 	void Application::run() {
-		WindowResizeEvent e(1280, 720);
-		LV_TRACE(e);
+		while (m_running) {
+			glClearColor(0, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
 
-		while (true);
+			for (Layer* layer : m_layerStack) {
+				layer->onUpdate();
+			}
+
+			m_window->onUpdate();
+		}
+	}
+
+	void Application::onEvent(Event& e) {
+		EventDispatcher dispatcher(e);
+		dispatcher.dispatch<WindowCloseEvent>(BIND_EVENT_FN(onWindowClose));
+
+		LW_CORE_TRACE("{0}", e);
+
+		for (auto it = m_layerStack.end(); it != m_layerStack.begin(); ) {
+			(*--it)->onEvent(e);
+			if (e.handled) {
+				break;
+			}
+		}
+	}
+
+	bool Application::onWindowClose(WindowCloseEvent& e) {
+		m_running = false;
+		return true;
+	}
+
+	void Application::pushLayer(Layer* layer) {
+		m_layerStack.pushLayer(layer);
+	}
+
+	void Application::pushOverlay(Layer* overlay) {
+		m_layerStack.pushOverlay(overlay);
 	}
 }

@@ -1,7 +1,9 @@
+#include "lwpch.h"
+
 #include "log.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 
-namespace lv {
+namespace lw {
 	std::shared_ptr<spdlog::logger> log::s_coreLogger;
 	std::shared_ptr<spdlog::logger> log::s_clientLogger;
 

@@ -1,17 +1,17 @@
 #pragma once
 
-#ifdef LV_PLATFORM_WINDOWS
+#ifdef LW_PLATFORM_WINDOWS
 
-extern lv::Application* lv::createApplication();
+extern lw::Application* lw::createApplication();
 
 int main(int argc, char** argv) {
-	lv::log::init();
-	LV_CORE_WARN("initialized logger");
+	lw::log::init();
+	LW_CORE_WARN("initialized logger");
 	int a = 5;
 	float b = 4.2f;
-	LV_INFO("hello Var1={0} Var2={1}", a, b);
+	LW_INFO("hello Var1={0} Var2={1}", a, b);
 
-	auto app = lv::createApplication();
+	auto app = lw::createApplication();
 	app->run();
 	delete app;
 	return 0;

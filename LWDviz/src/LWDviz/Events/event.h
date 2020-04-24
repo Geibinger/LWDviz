@@ -1,11 +1,8 @@
 #pragma once
-
-#include <string>
-#include <functional>
-
+#include "lwpch.h"
 #include "LWDviz/LVcore.h"
 
-namespace lv {
+namespace lw {
 
 	enum class EventType {
 		None = 0,
@@ -31,8 +28,9 @@ namespace lv {
 #define EVENT_CLASS_CATEGORY(category) virtual int getCategoryFlags() const override { return  category; }
 
 	class LWDVIZ_API Event {
-		friend class EventDispatcher;
 	public:
+		bool handled = false;
+
 		virtual EventType getEventType() const = 0;
 		virtual const char* getName() const = 0;
 		virtual int getCategoryFlags() const = 0;
@@ -41,9 +39,6 @@ namespace lv {
 		inline bool isInCategory(EventCategory category) {
 			return getCategoryFlags() & category;
 		}
-
-	protected:
-		bool m_handled = false;
 	};
 
 	class EventDispatcher {
@@ -55,8 +50,8 @@ namespace lv {
 
 		template<typename T>
 		bool dispatch(EventFn<T> func) {
-			if (m_event.getEventType() = T::getStaticType()) {
-				m_event.m_handled = func(*(T*)&m_event);
+			if (m_event.getEventType() == T::getStaticType()) {
+				m_event.handled = func(*(T*)&m_event);
 				return true;
 			}
 			return false;

@@ -1,10 +1,7 @@
 #pragma once
-
 #include "event.h"
 
-#include <sstream>
-
-namespace lv {
+namespace lw {
 
 	class LWDVIZ_API MouseMovedEvent : public Event {
 	public:

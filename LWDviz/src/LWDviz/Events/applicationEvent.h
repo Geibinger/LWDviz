@@ -1,9 +1,7 @@
 #pragma once
 #include "event.h"
 
-#include <sstream>
-
-namespace lv {
+namespace lw {
 
 	class LWDVIZ_API WindowResizeEvent : public Event {
 	public:
@@ -30,7 +28,7 @@ namespace lv {
 		WindowCloseEvent() {}
 
 		EVENT_CLASS_TYPE(WindowClose)
-			EVENT_CLASS_CATEGORY(EventCategoryApplication)
+		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
 	class LWDVIZ_API AppTickEvent : public Event {
@@ -38,7 +36,7 @@ namespace lv {
 		AppTickEvent() {}
 
 		EVENT_CLASS_TYPE(AppTick)
-			EVENT_CLASS_CATEGORY(EventCategoryApplication)
+		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
 	class LWDVIZ_API AppUpdateEvent : public Event {
@@ -46,7 +44,7 @@ namespace lv {
 		AppUpdateEvent() {}
 
 		EVENT_CLASS_TYPE(AppUpdate)
-			EVENT_CLASS_CATEGORY(EventCategoryApplication)
+		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
 	class LWDVIZ_API AppRenderEvent : public Event {
@@ -54,6 +52,6 @@ namespace lv {
 		AppRenderEvent() {}
 
 		EVENT_CLASS_TYPE(AppRender)
-			EVENT_CLASS_CATEGORY(EventCategoryApplication)
+		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 }

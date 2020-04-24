@@ -11,6 +11,12 @@ workspace "LWDviz"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "LWDviz/vendor/GLFW/include"
+
+include "LWDviz/vendor/GLFW"
+
 project "LWDviz"
 	location "LWDviz"
 	kind "SharedLib"
@@ -19,6 +25,9 @@ project "LWDviz"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "lwpch.h"
+	pchsource "LWDviz/src/lwpch.cpp"
 
 	files
 	{
@@ -29,7 +38,14 @@ project "LWDviz"
 	includedirs
 	{
 		"%{prj.name}/vendor/spdlog/include",
-		"%{prj.name}/src"
+		"%{prj.name}/src",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	postbuildcommands
@@ -49,16 +65,19 @@ project "LWDviz"
 	filter "configurations:Debug"
 		defines "LV_DEBUG"
 		runtime "Debug"
+		buildoptions "/MDd"
 		symbols "on"
 
 	filter "configurations:Release"
 		defines "LV_RELEASE"
 		runtime "Release"
+		buildoptions "/MD"
 		optimize "on"
 
 	filter "configurations:Dist"
 		defines "LV_DIST"
 		runtime "Release"
+		buildoptions "/MD"
 		optimize "on"
 
 project "sandbox"
@@ -97,14 +116,17 @@ project "sandbox"
 	filter "configurations:Debug"
 		defines "LV_DEBUG"
 		runtime "Debug"
+		buildoptions "/MDd"
 		symbols "on"
 
 	filter "configurations:Release"
 		defines "LV_RELEASE"
 		runtime "Release"
+		buildoptions "/MD"
 		optimize "on"
 
 	filter "configurations:Dist"
 		defines "LV_DIST"
 		runtime "Release"
+		buildoptions "/MD"
 		optimize "on"

@@ -1,12 +1,9 @@
 #pragma once
-
-#include <memory>
-
 #include "LVcore.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/fmt/ostr.h"
 
-namespace lv {
+namespace lw {
 	class LWDVIZ_API log
 	{
 	public:
@@ -21,15 +18,15 @@ namespace lv {
 }
 
 // core log macros
-#define LV_CORE_TRACE(...) ::lv::log::getCoreLogger()->trace(__VA_ARGS__)
-#define LV_CORE_INFO(...)  ::lv::log::getCoreLogger()->info(__VA_ARGS__)
-#define LV_CORE_WARN(...)  ::lv::log::getCoreLogger()->warn(__VA_ARGS__)
-#define LV_CORE_ERROR(...) ::lv::log::getCoreLogger()->error(__VA_ARGS__)
-#define LV_CORE_FATAL(...) ::lv::log::getCoreLogger()->critical(__VA_ARGS__)
+#define LW_CORE_TRACE(...) ::lw::log::getCoreLogger()->trace(__VA_ARGS__)
+#define LW_CORE_INFO(...)  ::lw::log::getCoreLogger()->info(__VA_ARGS__)
+#define LW_CORE_WARN(...)  ::lw::log::getCoreLogger()->warn(__VA_ARGS__)
+#define LW_CORE_ERROR(...) ::lw::log::getCoreLogger()->error(__VA_ARGS__)
+#define LW_CORE_FATAL(...) ::lw::log::getCoreLogger()->critical(__VA_ARGS__)
 
 // client log macros
-#define LV_TRACE(...) ::lv::log::getClientLogger()->trace(__VA_ARGS__)
-#define LV_INFO(...)  ::lv::log::getClientLogger()->info(__VA_ARGS__)
-#define LV_WARN(...)  ::lv::log::getClientLogger()->warn(__VA_ARGS__)
-#define LV_ERROR(...) ::lv::log::getClientLogger()->error(__VA_ARGS__)
-#define LV_FATAL(...) ::lv::log::getClientLogger()->critical(__VA_ARGS__)
+#define LW_TRACE(...) ::lw::log::getClientLogger()->trace(__VA_ARGS__)
+#define LW_INFO(...)  ::lw::log::getClientLogger()->info(__VA_ARGS__)
+#define LW_WARN(...)  ::lw::log::getClientLogger()->warn(__VA_ARGS__)
+#define LW_ERROR(...) ::lw::log::getClientLogger()->error(__VA_ARGS__)
+#define LW_FATAL(...) ::lw::log::getClientLogger()->critical(__VA_ARGS__)
