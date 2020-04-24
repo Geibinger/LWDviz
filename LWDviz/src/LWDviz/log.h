@@ -1,9 +1,10 @@
 #pragma once
 
+#include <memory>
+
 #include "LVcore.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/fmt/ostr.h"
-#include <memory>
 
 namespace lv {
 	class LWDVIZ_API log

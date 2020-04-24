@@ -1,8 +1,9 @@
 #pragma once
 
+#include <sstream>
+
 #include "event.h"
 
-#include <sstream>
 
 namespace lv {
 

@@ -28,8 +28,8 @@ project "LWDviz"
 
 	includedirs
 	{
-		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/src"
 	}
 
 	postbuildcommands
@@ -87,13 +87,11 @@ project "sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
-		
+
 		defines
 		{
-			"LV_PLATFORM_WINDOWS"
+  			"LV_PLATFORM_WINDOWS"
 		}
 		
 	filter "configurations:Debug"

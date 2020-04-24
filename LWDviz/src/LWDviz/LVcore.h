@@ -4,7 +4,7 @@
 	#ifdef LV_BUILD_DLL
 		#define	LWDVIZ_API __declspec(dllexport)
 	#else
-		#define	LVDVIZ_API __declspec(dllimport)
+		#define	LWDVIZ_API __declspec(dllimport)
 	#endif
 #else
 	#error LWDviz only supports Windows!

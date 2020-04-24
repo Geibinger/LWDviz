@@ -1,11 +1,10 @@
 #pragma once
 
 #include "LVcore.h"
-#include "Events/event.h"
 
 namespace lv {
-	class LWDVIZ_API Application
-	{
+	
+	class LWDVIZ_API Application {
 	public:
 		Application();
 		virtual ~Application();

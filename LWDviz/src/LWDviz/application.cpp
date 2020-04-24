@@ -2,6 +2,7 @@
 
 #include "Events/applicationEvent.h"
 #include "log.h"
+#include "Events/event.h"
 
 namespace lv {
 	Application::Application()

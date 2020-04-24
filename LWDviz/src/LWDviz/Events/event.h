@@ -1,8 +1,9 @@
 #pragma once
 
-#include "LWDviz/LVcore.h"
 #include <string>
 #include <functional>
+
+#include "LWDviz/LVcore.h"
 
 namespace lv {
 
