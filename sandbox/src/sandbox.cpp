@@ -6,7 +6,7 @@ public:
 		: Layer("Example") {}
 
 	void onUpdate() override {
-		LW_INFO("ExampleLayer::Update");
+		// LW_INFO("ExampleLayer::Update");
 	}
 
 	void onEvent(lw::Event& event) override {
@@ -18,6 +18,7 @@ class Sandbox : public lw::Application {
 public:
 	Sandbox(){
 		pushLayer(new ExampleLayer());
+		pushOverlay(new lw::ImGuiLayer());
 	}
 
 	~Sandbox(){

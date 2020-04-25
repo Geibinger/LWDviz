@@ -7,6 +7,12 @@
     <Filter Include="LWDviz\Events">
       <UniqueIdentifier>{69664513-D526-C149-9E61-0AC70AE10526}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platforms">
+      <UniqueIdentifier>{DDACA145-4917-56BC-9255-0762FEFE3311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\Windows">
+      <UniqueIdentifier>{17E40808-83FA-069E-CC71-92BF38C7D725}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\LWDviz.h" />
@@ -31,25 +37,43 @@
     <ClInclude Include="src\LWDviz\entryPoint.h">
       <Filter>LWDviz</Filter>
     </ClInclude>
+    <ClInclude Include="src\LWDviz\layer.h">
+      <Filter>LWDviz</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LWDviz\layerStack.h">
+      <Filter>LWDviz</Filter>
+    </ClInclude>
     <ClInclude Include="src\LWDviz\log.h">
       <Filter>LWDviz</Filter>
     </ClInclude>
+    <ClInclude Include="src\LWDviz\window.h">
+      <Filter>LWDviz</Filter>
+    </ClInclude>
     <ClInclude Include="src\lwpch.h" />
-    <ClInclude Include="src\LWDviz\window.h" />
-    <ClInclude Include="src\Platforms\Windows\WindowsWindow.h" />
-    <ClInclude Include="src\LWDviz\layer.h" />
-    <ClInclude Include="src\LWDviz\layerStack.h" />
+    <ClInclude Include="src\LWDviz\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Platforms\Windows\WindowsWindow.h">
+      <Filter>Platforms\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platforms\OpenGL\ImGuiOpenGLRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\LWDviz\application.cpp">
+      <Filter>LWDviz</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LWDviz\layer.cpp">
+      <Filter>LWDviz</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LWDviz\layerStack.cpp">
       <Filter>LWDviz</Filter>
     </ClCompile>
     <ClCompile Include="src\LWDviz\log.cpp">
       <Filter>LWDviz</Filter>
     </ClCompile>
     <ClCompile Include="src\lwpch.cpp" />
-    <ClCompile Include="src\Platforms\Windows\WindowsWindow.cpp" />
-    <ClCompile Include="src\LWDviz\layer.cpp" />
-    <ClCompile Include="src\LWDviz\layerStack.cpp" />
+    <ClCompile Include="src\LWDviz\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Platforms\Windows\WindowsWindow.cpp">
+      <Filter>Platforms\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platforms\OpenGL\ImGuiOpenGLRenderer.cpp" />
   </ItemGroup>
 </Project>

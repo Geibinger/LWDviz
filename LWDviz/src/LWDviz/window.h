@@ -13,8 +13,8 @@ namespace lw {
 		unsigned int height;
 
 		WindowProps(const std::string title = "LWDviz Engine",
-					unsigned int width = 720,
-					unsigned int height = 480)
+					unsigned int width = 1280,
+					unsigned int height = 720)
 			: title(title), width(width), height(height) {}
 	};
 

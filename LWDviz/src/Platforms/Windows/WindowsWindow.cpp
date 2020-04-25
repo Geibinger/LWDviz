@@ -5,6 +5,8 @@
 #include "LWDviz/Events/keyEvent.h"
 #include "LWDviz/Events/mouseEvent.h"
 
+#include <glad/glad.h>
+
 namespace lw {
 
 	static bool s_GLFWinitialized = false;
@@ -43,6 +45,8 @@ namespace lw {
 
 		m_window = glfwCreateWindow((int)props.width, (int)props.height, m_data.title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_window);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		LW_CORE_ASSERT(status, "Failed to initialize Glad!");
 		glfwSetWindowUserPointer(m_window, &m_data);
 		setVSync(true);
 
@@ -85,6 +89,13 @@ namespace lw {
 					break;
 				}
 			}
+		});
+
+		glfwSetCharCallback(m_window, [](GLFWwindow* window, unsigned int character) {
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+			KeyTypedEvent event(character);
+			data.eventCallback(event);
 		});
 
 		glfwSetMouseButtonCallback(m_window, [](GLFWwindow* window, int button, int action, int mods) {
