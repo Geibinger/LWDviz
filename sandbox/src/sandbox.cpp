@@ -6,11 +6,18 @@ public:
 		: Layer("Example") {}
 
 	void onUpdate() override {
-		// LW_INFO("ExampleLayer::Update");
+		if (lw::Input::isKeyPressed(LW_KEY_TAB)) {
+			LW_INFO("Key {0} is pressed!", LW_KEY_TAB);
+		}
 	}
 
 	void onEvent(lw::Event& event) override {
-		LW_TRACE("{0}", event);
+		switch (event.getEventType()) {
+		case lw::EventType::KeyPressed:
+			lw::KeyPressedEvent& e = (lw::KeyPressedEvent&)event;
+			LW_TRACE("{0}", (char)e.getKeyCode());
+			break;
+		}
 	}
 };
 

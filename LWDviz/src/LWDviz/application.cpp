@@ -41,7 +41,7 @@ namespace lw {
 		EventDispatcher dispatcher(e);
 		dispatcher.dispatch<WindowCloseEvent>(BIND_EVENT_FN(onWindowClose));
 
-		LW_CORE_TRACE("{0}", e);
+		// LW_CORE_TRACE("{0}", e);
 
 		for (auto it = m_layerStack.end(); it != m_layerStack.begin(); ) {
 			(*--it)->onEvent(e);

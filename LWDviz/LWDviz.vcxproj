@@ -156,12 +156,14 @@
     <ClInclude Include="src\LWDviz\Events\mouseEvent.h" />
     <ClInclude Include="src\LWDviz\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\LWDviz\input.h" />
+    <ClInclude Include="src\LWDviz\KeyCodes.h" />
     <ClInclude Include="src\LWDviz\LWcore.h" />
     <ClInclude Include="src\LWDviz\application.h" />
     <ClInclude Include="src\LWDviz\entryPoint.h" />
     <ClInclude Include="src\LWDviz\layer.h" />
     <ClInclude Include="src\LWDviz\layerStack.h" />
     <ClInclude Include="src\LWDviz\log.h" />
+    <ClInclude Include="src\LWDviz\MouseButtonCodes.h" />
     <ClInclude Include="src\LWDviz\window.h" />
     <ClInclude Include="src\Platforms\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platforms\Windows\WindowsInput.h" />

@@ -67,6 +67,8 @@
       <Filter>LWDviz</Filter>
     </ClInclude>
     <ClInclude Include="src\Platforms\Windows\WindowsInput.h" />
+    <ClInclude Include="src\LWDviz\KeyCodes.h" />
+    <ClInclude Include="src\LWDviz\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\LWDviz\ImGui\ImGuiLayer.cpp">
