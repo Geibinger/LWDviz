@@ -1,6 +1,6 @@
 #pragma once
 
-#include "LVcore.h"
+#include "LWcore.h"
 
 #include "window.h"
 #include "layerStack.h"

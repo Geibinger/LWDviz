@@ -10,6 +10,10 @@
 	#error LWDviz only supports Windows!
 #endif
 
+#ifdef LW_DEBUG
+	#define LW_ENABLE_ASSERTS
+#endif
+
 #ifdef LW_ENABLE_ASSERTS
 	#define LW_ASSERT(x, ...) { if(!x) { LW_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 	#define LW_CORE_ASSERT(x, ...) { if(!x) { LW_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }

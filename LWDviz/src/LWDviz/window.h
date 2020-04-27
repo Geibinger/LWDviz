@@ -2,7 +2,7 @@
 
 #include "lwpch.h"
 
-#include "LVcore.h"
+#include "LWcore.h"
 #include "Events/event.h"
 
 namespace lw {
@@ -34,6 +34,8 @@ namespace lw {
 		virtual void setEventCallback(const EventCallbackFn& callback) = 0;
 		virtual void setVSync(bool enabled) = 0;
 		virtual bool isVSync() const = 0;
+
+		virtual void* getNativeWindow() const = 0;
 
 		static Window* create(const WindowProps& props = WindowProps());
 	};

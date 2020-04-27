@@ -1,6 +1,6 @@
 #pragma once
 #include "lwpch.h"
-#include "LWDviz/LVcore.h"
+#include "LWDviz/LWcore.h"
 
 namespace lw {
 

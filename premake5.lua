@@ -26,6 +26,7 @@ project "LWDviz"
 	kind "SharedLib"
 	language "C++"
 	cppdialect "C++17"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -58,7 +59,7 @@ project "LWDviz"
 
 	postbuildcommands
 	{
-		("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/sandbox")
+		("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/sandbox/\"")
 	}
 
 	filter "system:windows"
@@ -74,25 +75,24 @@ project "LWDviz"
 	filter "configurations:Debug"
 		defines "LW_DEBUG"
 		runtime "Debug"
-		buildoptions "/MDd"
 		symbols "on"
 
 	filter "configurations:Release"
 		defines "LW_RELEASE"
 		runtime "Release"
-		buildoptions "/MD"
 		optimize "on"
 
 	filter "configurations:Dist"
 		defines "LW_DIST"
 		runtime "Release"
-		buildoptions "/MD"
 		optimize "on"
 
 project "sandbox"
 	location "sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -125,17 +125,14 @@ project "sandbox"
 	filter "configurations:Debug"
 		defines "LW_DEBUG"
 		runtime "Debug"
-		buildoptions "/MDd"
 		symbols "on"
 
 	filter "configurations:Release"
 		defines "LW_RELEASE"
 		runtime "Release"
-		buildoptions "/MD"
 		optimize "on"
 
 	filter "configurations:Dist"
 		defines "LW_DIST"
 		runtime "Release"
-		buildoptions "/MD"
 		optimize "on"

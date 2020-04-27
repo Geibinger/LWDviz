@@ -1,5 +1,5 @@
 #pragma once
-#include "LVcore.h"
+#include "LWcore.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/fmt/ostr.h"
 

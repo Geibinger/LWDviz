@@ -7,8 +7,14 @@
     <Filter Include="LWDviz\Events">
       <UniqueIdentifier>{69664513-D526-C149-9E61-0AC70AE10526}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LWDviz\ImGui">
+      <UniqueIdentifier>{0F73D800-FBD5-67A5-A45B-A05B909D3328}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platforms">
       <UniqueIdentifier>{DDACA145-4917-56BC-9255-0762FEFE3311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\OpenGL">
+      <UniqueIdentifier>{719BB998-5D94-D8EA-86C6-BD6F721EB8F6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platforms\Windows">
       <UniqueIdentifier>{17E40808-83FA-069E-CC71-92BF38C7D725}</UniqueIdentifier>
@@ -28,8 +34,8 @@
     <ClInclude Include="src\LWDviz\Events\mouseEvent.h">
       <Filter>LWDviz\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\LWDviz\LVcore.h">
-      <Filter>LWDviz</Filter>
+    <ClInclude Include="src\LWDviz\ImGui\ImGuiLayer.h">
+      <Filter>LWDviz\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="src\LWDviz\application.h">
       <Filter>LWDviz</Filter>
@@ -49,14 +55,23 @@
     <ClInclude Include="src\LWDviz\window.h">
       <Filter>LWDviz</Filter>
     </ClInclude>
-    <ClInclude Include="src\lwpch.h" />
-    <ClInclude Include="src\LWDviz\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Platforms\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Platforms\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platforms\Windows\WindowsWindow.h">
       <Filter>Platforms\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platforms\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\lwpch.h" />
+    <ClInclude Include="src\LWDviz\input.h" />
+    <ClInclude Include="src\LWDviz\LWcore.h">
+      <Filter>LWDviz</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platforms\Windows\WindowsInput.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\LWDviz\ImGui\ImGuiLayer.cpp">
+      <Filter>LWDviz\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\LWDviz\application.cpp">
       <Filter>LWDviz</Filter>
     </ClCompile>
@@ -69,11 +84,13 @@
     <ClCompile Include="src\LWDviz\log.cpp">
       <Filter>LWDviz</Filter>
     </ClCompile>
-    <ClCompile Include="src\lwpch.cpp" />
-    <ClCompile Include="src\LWDviz\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Platforms\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Platforms\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platforms\Windows\WindowsWindow.cpp">
       <Filter>Platforms\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platforms\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\lwpch.cpp" />
+    <ClCompile Include="src\Platforms\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>
