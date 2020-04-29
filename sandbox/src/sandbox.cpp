@@ -25,7 +25,6 @@ class Sandbox : public lw::Application {
 public:
 	Sandbox(){
 		pushLayer(new ExampleLayer());
-		pushOverlay(new lw::ImGuiLayer());
 	}
 
 	~Sandbox(){

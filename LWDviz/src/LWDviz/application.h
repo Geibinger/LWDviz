@@ -6,6 +6,7 @@
 #include "layerStack.h"
 #include "Events/event.h"
 #include "Events/applicationEvent.h"
+#include "LWDviz/ImGui/ImGuiLayer.h"
 
 namespace lw {
 	
@@ -27,6 +28,7 @@ namespace lw {
 		bool onWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_window;
+		std::unique_ptr<ImGuiLayer> m_imGuiLayer;
 		bool m_running = true;
 		LayerStack m_layerStack;
 
