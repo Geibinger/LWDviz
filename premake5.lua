@@ -111,6 +111,7 @@ project "sandbox"
 	{
 		"LWDviz/vendor/spdlog/include",
 		"LWDviz/src",
+		"LWDviz/vendor",
 		"%{IncludeDir.glm}"
 	}
 

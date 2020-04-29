@@ -20,7 +20,8 @@ namespace lw {
 		m_window = std::unique_ptr<Window>(Window::create());
 		m_window->setEventCallback(BIND_EVENT_FN(onEvent));
 
-		m_imGuiLayer = std::make_unique<ImGuiLayer>();
+		m_imGuiLayer = new ImGuiLayer();
+		pushOverlay(m_imGuiLayer);
 	}
 
 

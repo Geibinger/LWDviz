@@ -2,11 +2,11 @@
 
 #include "ImGuiLayer.h"
 #include "LWDviz/application.h"
+#include <imgui.h>
 
 #define IMGUI_IMPL_API
 #include "examples/imgui_impl_glfw.h"
 #include "examples/imgui_impl_opengl3.h"
-#include <imgui.h>
 
 // Temporary:
 #include <GLFW/glfw3.h>
@@ -57,9 +57,8 @@ namespace lw {
 	}
 
 	void ImGuiLayer::onImGuiRender() {
-		ImGuiIO& io = ImGui::GetIO();
-		Application& app = Application::get();
-		io.DisplaySize = ImVec2(app.getWindow().getWidth(), app.getWindow().getHeight());
+		static bool show = true;
+		ImGui::ShowDemoWindow(&show);
 	}
 
 	void ImGuiLayer::begin() {

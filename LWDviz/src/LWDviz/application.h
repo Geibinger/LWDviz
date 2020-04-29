@@ -28,7 +28,7 @@ namespace lw {
 		bool onWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_window;
-		std::unique_ptr<ImGuiLayer> m_imGuiLayer;
+		ImGuiLayer* m_imGuiLayer;
 		bool m_running = true;
 		LayerStack m_layerStack;
 
