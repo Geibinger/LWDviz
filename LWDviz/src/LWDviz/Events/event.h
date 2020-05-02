@@ -27,7 +27,7 @@ namespace lw {
 
 #define EVENT_CLASS_CATEGORY(category) virtual int getCategoryFlags() const override { return  category; }
 
-	class LWDVIZ_API Event {
+	class Event {
 	public:
 		bool handled = false;
 

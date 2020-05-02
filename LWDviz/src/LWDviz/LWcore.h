@@ -1,12 +1,15 @@
 #pragma once
 
 #ifdef LW_PLATFORM_WINDOWS
-	#ifdef LW_BUILD_DLL
-		#define	LWDVIZ_API __declspec(dllexport)
-	#else
-		#define	LWDVIZ_API __declspec(dllimport)
+	#ifdef LW_DYNAMIC_LINK
+		#ifdef LW_BUILD_DLL
+			#define	LWVIZ_API __declspec(dllexport)
+		#else
+			#define	LWVIZ_API __declspec(dllimport)
+		#endif
 	#endif
 #else
+	#define LWVIZ_API
 	#error LWDviz only supports Windows!
 #endif
 

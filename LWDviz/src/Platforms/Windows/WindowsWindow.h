@@ -1,6 +1,7 @@
 #pragma once
 
 #include "LWDviz/window.h"
+#include "LWDviz/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -27,6 +28,7 @@ namespace lw {
 		virtual void shutdown();
 
 		GLFWwindow* m_window;
+		GraphicsContext* m_context;
 
 		struct WindowData {
 			std::string title;

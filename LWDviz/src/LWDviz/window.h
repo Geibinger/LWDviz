@@ -20,7 +20,7 @@ namespace lw {
 
 	// interface for desktop based system
 
-	class LWDVIZ_API Window {
+	class Window {
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
 

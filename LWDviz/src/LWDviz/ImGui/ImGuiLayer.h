@@ -7,7 +7,7 @@
 #include "LWDviz/Events/mouseEvent.h"
 
 namespace lw {
-	class LWDVIZ_API ImGuiLayer : public Layer {
+	class ImGuiLayer : public Layer {
 	public:
 		ImGuiLayer();
 		~ImGuiLayer();

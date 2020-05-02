@@ -7,10 +7,12 @@
 #include "Events/event.h"
 #include "Events/applicationEvent.h"
 #include "LWDviz/ImGui/ImGuiLayer.h"
+#include "LWDviz/Renderer/shader.h"
+#include "LWDviz/Renderer/buffer.h"
 
 namespace lw {
 	
-	class LWDVIZ_API Application {
+	class Application {
 	public:
 		Application();
 		virtual ~Application();
@@ -31,6 +33,11 @@ namespace lw {
 		ImGuiLayer* m_imGuiLayer;
 		bool m_running = true;
 		LayerStack m_layerStack;
+		
+		unsigned int m_vertexArray;
+		std::unique_ptr<Shader> m_shader;
+		std::unique_ptr<VertexBuffer> m_vertexBuffer;
+		std::unique_ptr<IndexBuffer> m_indexBuffer;
 
 		static Application* s_instance;
 	};

@@ -4,7 +4,7 @@
 #include "spdlog/fmt/ostr.h"
 
 namespace lw {
-	class LWDVIZ_API log
+	class log
 	{
 	public:
 		static void init();

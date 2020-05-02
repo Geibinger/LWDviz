@@ -6,7 +6,7 @@
 #include <vector>
 
 namespace lw {
-	class LWDVIZ_API LayerStack
+	class LayerStack
 	{
 	public:
 		LayerStack();

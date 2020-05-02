@@ -4,7 +4,7 @@
 
 namespace lw {
 
-	class LWDVIZ_API KeyEvent : public Event{
+	class KeyEvent : public Event{
 	public:
 		inline int getKeyCode() const { return m_keyCode; }
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
@@ -15,7 +15,7 @@ namespace lw {
 		int m_keyCode;
 	};
 
-	class LWDVIZ_API KeyPressedEvent : public KeyEvent {
+	class KeyPressedEvent : public KeyEvent {
 	public:
 		KeyPressedEvent(int keycode, int repeatCount)
 			: KeyEvent(keycode), m_repeatCount(repeatCount) {}
@@ -33,7 +33,7 @@ namespace lw {
 		int m_repeatCount;
 	};
 
-	class LWDVIZ_API KeyReleasedEvent : public KeyEvent {
+	class KeyReleasedEvent : public KeyEvent {
 	public:
 		KeyReleasedEvent(int keycode)
 			: KeyEvent(keycode) {}
@@ -47,7 +47,7 @@ namespace lw {
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
 
-	class LWDVIZ_API KeyTypedEvent : public KeyEvent {
+	class KeyTypedEvent : public KeyEvent {
 	public:
 		KeyTypedEvent(int keycode)
 			: KeyEvent(keycode) {}

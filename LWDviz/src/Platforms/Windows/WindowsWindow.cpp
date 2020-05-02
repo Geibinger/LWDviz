@@ -5,7 +5,7 @@
 #include "LWDviz/Events/keyEvent.h"
 #include "LWDviz/Events/mouseEvent.h"
 
-#include <glad/glad.h>
+#include "Platforms/OpenGL/OpenGLContext.h"
 
 namespace lw {
 
@@ -31,7 +31,6 @@ namespace lw {
 		m_data.title = props.title;
 		m_data.width = props.width;
 		m_data.height = props.height;
-
 		LW_CORE_INFO("Creating window {0} ({1}, {2})", props.title, props.width, props.height);
 
 		if (!s_GLFWinitialized) {
@@ -44,9 +43,10 @@ namespace lw {
 		}
 
 		m_window = glfwCreateWindow((int)props.width, (int)props.height, m_data.title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_window);
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		LW_CORE_ASSERT(status, "Failed to initialize Glad!");
+
+		m_context = new OpenGLContext(m_window);
+		m_context->init();
+		
 		glfwSetWindowUserPointer(m_window, &m_data);
 		setVSync(true);
 
@@ -136,7 +136,7 @@ namespace lw {
 
 	void WindowsWindow::onUpdate() {
 		glfwPollEvents();
-		glfwSwapBuffers(m_window);
+		m_context->swapBuffers();
 	}
 
 	void WindowsWindow::setVSync(bool enabled) {

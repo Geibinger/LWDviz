@@ -3,7 +3,7 @@
 #include "LWcore.h"
 
 namespace lw {
-	class LWDVIZ_API Input {
+	class Input {
 	public:
 		inline static bool isKeyPressed(int keycode) { return s_instance->isKeyPressedImpl(keycode); }
 

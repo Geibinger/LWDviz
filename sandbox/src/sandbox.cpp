@@ -14,8 +14,12 @@ public:
 	}
 
 	virtual void onImGuiRender() override {
-		ImGui::Begin("Test");
-		ImGui::Text("Text");
+		ImGui::Begin("Knödel");
+		ImGui::Text("He isi...");
+		static bool b;
+		ImGui::Checkbox("Geila Orsch", &b);
+		static float f;
+		ImGui::DragFloat("LIEBE", &f);
 		ImGui::End();
 	}
 

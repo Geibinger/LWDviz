@@ -1323,6 +1323,12 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\LWDviz\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\LWDviz\Renderer\shader.h" />
+    <ClInclude Include="src\LWDviz\Renderer\buffer.h" />
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\LWDviz\Renderer\renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\LWDviz\ImGui\ImGuiBuild.cpp">
@@ -1352,5 +1358,10 @@
     <ClCompile Include="src\lwpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\LWDviz\Renderer\shader.cpp" />
+    <ClCompile Include="src\LWDviz\Renderer\buffer.cpp" />
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\LWDviz\Renderer\renderer.cpp" />
   </ItemGroup>
 </Project>
