@@ -1329,6 +1329,11 @@
     <ClInclude Include="src\LWDviz\Renderer\buffer.h" />
     <ClInclude Include="src\Platforms\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\LWDviz\Renderer\renderer.h" />
+    <ClInclude Include="src\LWDviz\Renderer\VertexArray.h" />
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\LWDviz\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\LWDviz\Renderer\RenderCommand.h" />
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLRendererAPI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\LWDviz\ImGui\ImGuiBuild.cpp">
@@ -1363,5 +1368,10 @@
     <ClCompile Include="src\LWDviz\Renderer\buffer.cpp" />
     <ClCompile Include="src\Platforms\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\LWDviz\Renderer\renderer.cpp" />
+    <ClCompile Include="src\LWDviz\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\LWDviz\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\LWDviz\Renderer\RenderCommand.cpp" />
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLRendererAPI.cpp" />
   </ItemGroup>
 </Project>

@@ -6,9 +6,10 @@
 #include "layerStack.h"
 #include "Events/event.h"
 #include "Events/applicationEvent.h"
-#include "LWDviz/ImGui/ImGuiLayer.h"
-#include "LWDviz/Renderer/shader.h"
-#include "LWDviz/Renderer/buffer.h"
+#include "ImGui/ImGuiLayer.h"
+#include "Renderer/shader.h"
+#include "Renderer/buffer.h"
+#include "Renderer/VertexArray.h"
 
 namespace lw {
 	
@@ -34,10 +35,11 @@ namespace lw {
 		bool m_running = true;
 		LayerStack m_layerStack;
 		
-		unsigned int m_vertexArray;
-		std::unique_ptr<Shader> m_shader;
-		std::unique_ptr<VertexBuffer> m_vertexBuffer;
-		std::unique_ptr<IndexBuffer> m_indexBuffer;
+		std::shared_ptr<Shader> m_shader;
+		std::shared_ptr<VertexArray> m_vertexArray;
+
+		std::shared_ptr<Shader> m_squareShader;
+		std::shared_ptr<VertexArray> m_squareVA;
 
 		static Application* s_instance;
 	};

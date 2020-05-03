@@ -3,8 +3,7 @@
 #include "application.h"
 #include "Events/event.h"
 #include "Renderer/shader.h"
-
-#include <glad/glad.h>
+#include "Renderer/renderer.h"
 
 
 namespace lw {
@@ -12,25 +11,6 @@ namespace lw {
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application* Application::s_instance = nullptr;
-
-	static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type) {
-		switch (type) {
-			case ShaderDataType::Float:		return GL_FLOAT;
-			case ShaderDataType::Float2:	return GL_FLOAT;
-			case ShaderDataType::Float3:	return GL_FLOAT;
-			case ShaderDataType::Float4:	return GL_FLOAT;
-			case ShaderDataType::Mat3:		return GL_FLOAT;
-			case ShaderDataType::Mat4:		return GL_FLOAT;
-			case ShaderDataType::Int:		return GL_INT;
-			case ShaderDataType::Int2:		return GL_INT;
-			case ShaderDataType::Int3:		return GL_INT;
-			case ShaderDataType::Int4:		return GL_INT;
-			case ShaderDataType::Bool:		return GL_BOOL;
-		}
-
-		LW_CORE_ASSERT(false, "Unknown ShaderDataType!");
-		return 0;
-	}
 
 	Application::Application()
 	{
@@ -43,8 +23,7 @@ namespace lw {
 		m_imGuiLayer = new ImGuiLayer();
 		pushOverlay(m_imGuiLayer);
 
-		glGenVertexArrays(1, &m_vertexArray);
-		glBindVertexArray(m_vertexArray); 
+		m_vertexArray.reset(VertexArray::create());
 
 		float vertices[7 * 3] = {
 			-0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
@@ -52,32 +31,46 @@ namespace lw {
 			 0.0f,  0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f,
 		};
 
-		m_vertexBuffer.reset(VertexBuffer::create(vertices, sizeof(vertices)));
-		
-		{
-			BufferLayout layout = {
-				{ ShaderDataType::Float3, "a_position" },
-				{ ShaderDataType::Float4, "a_color" }
-			};
+		std::shared_ptr<VertexBuffer> vertexBuffer;
+		vertexBuffer.reset(VertexBuffer::create(vertices, sizeof(vertices)));
 
-			m_vertexBuffer->setLayout(layout);
-		}
+		BufferLayout layout = {
+			{ ShaderDataType::Float3, "a_position" },
+			{ ShaderDataType::Float4, "a_color" }
+		};
 
-		uint32_t index = 0;
-		const auto& layout = m_vertexBuffer->getLayout();
-		for (const auto& element : layout) {
-			glEnableVertexAttribArray(index);
-			glVertexAttribPointer(index,
-				element.getComponentCount(),
-				ShaderDataTypeToOpenGLBaseType(element.type),
-				element.normalized ? GL_TRUE : GL_FALSE,
-				layout.getStride(),
-				(const void*)element.offset);
-			index++;
-		}
+		vertexBuffer->setLayout(layout);
+		m_vertexArray->addVertexBuffer(vertexBuffer);
 		
-		unsigned int indeces[3] = { 0, 1, 2 };
-		m_indexBuffer.reset(IndexBuffer::create(indeces, sizeof(indeces) / sizeof(uint32_t)));
+		uint32_t indeces[3] = { 0, 1, 2 };
+
+		std::shared_ptr<IndexBuffer> indexBuffer;
+		indexBuffer.reset(IndexBuffer::create(indeces, sizeof(indeces) / sizeof(uint32_t)));
+		m_vertexArray->setIndexBuffer(indexBuffer);
+
+		m_squareVA.reset(VertexArray::create());
+
+		float vertices2[3 * 4] = {
+			-0.75f, -0.75f, 0.0f,
+			 0.75f, -0.75f, 0.0f,
+			 0.75f,  0.75f, 0.0f,
+			-0.75f,  0.75f, 0.0f
+		};
+
+		std::shared_ptr<VertexBuffer> squareVB;
+		squareVB.reset(VertexBuffer::create(vertices2, sizeof(vertices2)));
+
+		BufferLayout layout2 = {
+			{ ShaderDataType::Float3, "a_position" }
+		};
+
+		squareVB->setLayout(layout2);
+		m_squareVA->addVertexBuffer(squareVB);
+
+		uint32_t indeces2[6] = { 0, 1, 2, 2, 3, 0 };
+		std::shared_ptr<IndexBuffer> squareIB;
+		squareIB.reset(IndexBuffer::create(indeces2, sizeof(indeces2) / sizeof(uint32_t)));
+		m_squareVA->setIndexBuffer(squareIB);
 
 		std::string vertexSrc = R"(
 			#version 330 core
@@ -112,6 +105,35 @@ namespace lw {
 		)";
 
 		m_shader.reset(new Shader(vertexSrc, fragmentSrc));
+
+		std::string vertexSrc2 = R"(
+			#version 330 core
+			
+			layout(location = 0) in vec3 a_position;
+
+			out vec3 v_position;
+
+			void main()
+			{
+				v_position = a_position;
+				gl_Position = vec4(a_position, 1.0);
+			}
+		)";
+
+		std::string fragmentSrc2 = R"(
+			#version 330 core
+			
+			layout(location = 0) out vec4 color;
+			
+			in vec3 v_position;
+
+			void main()
+			{
+				color = vec4(v_position * 0.5 + 0.5, 1.0);
+			}
+		)";
+
+		m_squareShader.reset(new Shader(vertexSrc2, fragmentSrc2));
 	}
 
 
@@ -119,12 +141,19 @@ namespace lw {
 	
 	void Application::run() {
 		while (m_running) {
-			glClearColor(0.1f, 0.1f, 0.1f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
+			RenderCommand::setClearColor({ 0.1f, 0.1f, 0.1f, 1 });
+			RenderCommand::clear();
+
+			Renderer::beginScene();
+
+
+			m_squareShader->bind();
+			Renderer::submit(m_squareVA);
 
 			m_shader->bind();
-			glBindVertexArray(m_vertexArray);
-			glDrawElements(GL_TRIANGLES, m_indexBuffer->getCount(), GL_UNSIGNED_INT, nullptr);
+			Renderer::submit(m_vertexArray);
+
+			Renderer::endScene();
 
 			for (Layer* layer : m_layerStack) {
 				layer->onUpdate();

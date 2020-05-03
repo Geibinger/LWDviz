@@ -9,7 +9,7 @@ public:
 
 	void onUpdate() override {
 		if (lw::Input::isKeyPressed(LW_KEY_TAB)) {
-			LW_INFO("Key {0} is pressed!", LW_KEY_TAB);
+			// LW_INFO("Key {0} is pressed!", LW_KEY_TAB);
 		}
 	}
 
@@ -27,7 +27,7 @@ public:
 		switch (event.getEventType()) {
 		case lw::EventType::KeyPressed:
 			lw::KeyPressedEvent& e = (lw::KeyPressedEvent&)event;
-			LW_TRACE("{0}", (char)e.getKeyCode());
+			// LW_TRACE("{0}", (char)e.getKeyCode());
 			break;
 		}
 	}
