@@ -2,6 +2,8 @@
 
 #include <string>
 
+#include <glm/glm.hpp>
+
 namespace lw {
 	class Shader {
 	public:
@@ -10,6 +12,8 @@ namespace lw {
 
 		void bind() const;
 		void unBind() const;
+
+		void uploadUniformMat4(const std::string& name, const glm::mat4& matrix);
 	private:
 		uint32_t m_rendererID;
 	};

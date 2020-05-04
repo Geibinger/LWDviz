@@ -157,6 +157,7 @@
     <ClInclude Include="src\LWDviz\log.h" />
     <ClInclude Include="src\LWDviz\Renderer\buffer.h" />
     <ClInclude Include="src\LWDviz\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\LWDviz\Renderer\Camera.h" />
     <ClInclude Include="src\LWDviz\Renderer\RenderCommand.h" />
     <ClInclude Include="src\LWDviz\Renderer\renderer.h" />
     <ClInclude Include="src\LWDviz\Renderer\RendererAPI.h" />
@@ -587,6 +588,7 @@
     <ClCompile Include="src\LWDviz\layerStack.cpp" />
     <ClCompile Include="src\LWDviz\log.cpp" />
     <ClCompile Include="src\LWDviz\Renderer\buffer.cpp" />
+    <ClCompile Include="src\LWDviz\Renderer\Camera.cpp" />
     <ClCompile Include="src\LWDviz\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\LWDviz\Renderer\renderer.cpp" />
     <ClCompile Include="src\LWDviz\Renderer\RendererAPI.cpp" />

@@ -10,6 +10,7 @@
 #include "Renderer/shader.h"
 #include "Renderer/buffer.h"
 #include "Renderer/VertexArray.h"
+#include "Renderer/Camera.h"
 
 namespace lw {
 	
@@ -34,12 +35,6 @@ namespace lw {
 		ImGuiLayer* m_imGuiLayer;
 		bool m_running = true;
 		LayerStack m_layerStack;
-		
-		std::shared_ptr<Shader> m_shader;
-		std::shared_ptr<VertexArray> m_vertexArray;
-
-		std::shared_ptr<Shader> m_squareShader;
-		std::shared_ptr<VertexArray> m_squareVA;
 
 		static Application* s_instance;
 	};
