@@ -1335,6 +1335,7 @@
     <ClInclude Include="src\LWDviz\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Platforms\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\LWDviz\Renderer\Camera.h" />
+    <ClInclude Include="src\LWDviz\Core\Timestep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\LWDviz\ImGui\ImGuiBuild.cpp">

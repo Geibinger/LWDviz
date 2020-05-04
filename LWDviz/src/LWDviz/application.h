@@ -7,10 +7,7 @@
 #include "Events/event.h"
 #include "Events/applicationEvent.h"
 #include "ImGui/ImGuiLayer.h"
-#include "Renderer/shader.h"
-#include "Renderer/buffer.h"
-#include "Renderer/VertexArray.h"
-#include "Renderer/Camera.h"
+#include "LWDviz/Core/Timestep.h"
 
 namespace lw {
 	
@@ -35,6 +32,7 @@ namespace lw {
 		ImGuiLayer* m_imGuiLayer;
 		bool m_running = true;
 		LayerStack m_layerStack;
+		float m_lastFrameTime = 0.0f;
 
 		static Application* s_instance;
 	};

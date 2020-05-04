@@ -3,6 +3,8 @@
 #include "application.h"
 #include "Renderer/renderer.h"
 
+#include <GLFW/glfw3.h>
+
 namespace lw {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -16,18 +18,23 @@ namespace lw {
 
 		m_window = std::unique_ptr<Window>(Window::create());
 		m_window->setEventCallback(BIND_EVENT_FN(onEvent));
+		m_window->setVSync(true);
 
 		m_imGuiLayer = new ImGuiLayer();
 		pushOverlay(m_imGuiLayer);
 	}
 
-
+	
 	Application::~Application() {}
 	
 	void Application::run() {
 		while (m_running) {
+			float time = (float)glfwGetTime(); // Platform::getTime()
+			Timestep timestep = time - m_lastFrameTime;
+			m_lastFrameTime = time;
+
 			for (Layer* layer : m_layerStack) {
-				layer->onUpdate();
+				layer->onUpdate(timestep);
 			}
 
 			m_imGuiLayer->begin();
@@ -40,21 +47,19 @@ namespace lw {
 		}
 	}
 
-	void Application::onEvent(Event& e) {
-		EventDispatcher dispatcher(e);
+	void Application::onEvent(Event& event) {
+		EventDispatcher dispatcher(event);
 		dispatcher.dispatch<WindowCloseEvent>(BIND_EVENT_FN(onWindowClose));
 
-		// LW_CORE_TRACE("{0}", e);
-
 		for (auto it = m_layerStack.end(); it != m_layerStack.begin(); ) {
-			(*--it)->onEvent(e);
-			if (e.handled) {
+			(*--it)->onEvent(event);
+			if (event.handled) {
 				break;
 			}
 		}
 	}
 
-	bool Application::onWindowClose(WindowCloseEvent& e) {
+	bool Application::onWindowClose(WindowCloseEvent& event) {
 		m_running = false;
 		return true;
 	}

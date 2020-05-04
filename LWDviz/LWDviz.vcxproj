@@ -141,6 +141,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\LWDviz.h" />
+    <ClInclude Include="src\LWDviz\Core\Timestep.h" />
     <ClInclude Include="src\LWDviz\Events\applicationEvent.h" />
     <ClInclude Include="src\LWDviz\Events\event.h" />
     <ClInclude Include="src\LWDviz\Events\keyEvent.h" />

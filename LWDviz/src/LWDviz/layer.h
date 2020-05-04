@@ -2,6 +2,7 @@
 
 #include "LWcore.h"
 #include "Events/event.h"
+#include "Core/Timestep.h"
 
 namespace lw {
 	class Layer
@@ -12,7 +13,7 @@ namespace lw {
 
 		virtual void onAttach() {}
 		virtual void onDetach() {}
-		virtual void onUpdate() {}
+		virtual void onUpdate(Timestep ts) {}
 		virtual void onImGuiRender() {}
 		virtual void onEvent(Event& event) {}
 

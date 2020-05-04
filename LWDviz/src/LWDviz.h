@@ -9,6 +9,7 @@
 #include "LWDviz/layer.h"
 #include "LWDviz/log.h"
 #include "LWDviz/ImGui/ImGuiLayer.h"
+#include "LWDviz/Core/Timestep.h"
 
 #include "LWDviz/Renderer/renderer.h"
 #include "LWDviz/Renderer/RenderCommand.h"
