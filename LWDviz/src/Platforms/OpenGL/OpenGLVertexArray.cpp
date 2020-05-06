@@ -41,7 +41,7 @@ namespace lw {
 		glBindVertexArray(0);
 	}
 
-	void OpenGLVertexArray::addVertexBuffer(const std::shared_ptr<VertexBuffer>& vertexBuffer) {
+	void OpenGLVertexArray::addVertexBuffer(const ref<VertexBuffer>& vertexBuffer) {
 		LW_CORE_ASSERT(vertexBuffer->getLayout().getElements().size(), "Vertexbuffer has no layout!")
 		glBindVertexArray(m_rendererID);
 		vertexBuffer->bind();
@@ -63,7 +63,7 @@ namespace lw {
 		m_vertexBuffers.push_back(vertexBuffer);
 	}
 
-	void OpenGLVertexArray::setIndexBuffer(const std::shared_ptr<IndexBuffer>& indexBuffer) {
+	void OpenGLVertexArray::setIndexBuffer(const ref<IndexBuffer>& indexBuffer) {
 		glBindVertexArray(m_rendererID);
 		indexBuffer->bind();
 

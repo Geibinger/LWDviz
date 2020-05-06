@@ -16,6 +16,7 @@
 
 #include "LWDviz/Renderer/buffer.h"
 #include "LWDviz/Renderer/shader.h"
+#include "LWDviz/Renderer/Texture.h"
 #include "LWDviz/Renderer/VertexArray.h"
 
 #include "LWDviz/Renderer/Camera.h"

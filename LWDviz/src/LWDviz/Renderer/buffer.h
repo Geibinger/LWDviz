@@ -88,7 +88,7 @@ namespace lw {
 
 	class VertexBuffer {
 	public:
-		virtual ~VertexBuffer() {}
+		virtual ~VertexBuffer() = default;
 
 		virtual void bind() const = 0;
 		virtual void unbind() const = 0;
@@ -101,7 +101,7 @@ namespace lw {
 
 	class IndexBuffer {
 	public:
-		virtual ~IndexBuffer() {}
+		virtual ~IndexBuffer() = default;
 
 		virtual void bind() const = 0;
 		virtual void unbind() const = 0;

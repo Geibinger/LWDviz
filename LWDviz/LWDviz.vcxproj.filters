@@ -7,14 +7,23 @@
     <Filter Include="src\LWDviz">
       <UniqueIdentifier>{5C8FD31C-4847-156A-B14E-EEC59D25B05A}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\LWDviz\Core">
+      <UniqueIdentifier>{34AD7884-A038-E648-A949-693D15544249}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\LWDviz\Events">
       <UniqueIdentifier>{C0DB7A8A-2CF2-7820-7569-0442E1BE49A8}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\LWDviz\ImGui">
       <UniqueIdentifier>{8619F913-7212-1866-9B44-FDEA879CF771}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\LWDviz\Renderer">
+      <UniqueIdentifier>{82DA9B0B-EE3B-7919-77A9-BFCBE309B0D8}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platforms">
       <UniqueIdentifier>{B40E5C85-20CF-D7BB-E909-213955891C98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platforms\OpenGL">
+      <UniqueIdentifier>{68A52600-5434-B0C9-FD52-C4C4E9C0C06F}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Platforms\Windows">
       <UniqueIdentifier>{EE2C175D-5A99-D257-238D-6AB58FB8F4BF}</UniqueIdentifier>
@@ -40,10 +49,16 @@
     <Filter Include="vendor\glm\glm\gtx">
       <UniqueIdentifier>{B3A6A76B-9F8A-68C1-08EB-6214F4ED5243}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vendor\stb_image">
+      <UniqueIdentifier>{0DA0BA59-F998-D9AB-22CB-BE300E23B9B7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\LWDviz.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LWDviz\Core\Timestep.h">
+      <Filter>src\LWDviz\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\LWDviz\Events\applicationEvent.h">
       <Filter>src\LWDviz\Events</Filter>
@@ -69,6 +84,33 @@
     <ClInclude Include="src\LWDviz\MouseButtonCodes.h">
       <Filter>src\LWDviz</Filter>
     </ClInclude>
+    <ClInclude Include="src\LWDviz\Renderer\Camera.h">
+      <Filter>src\LWDviz\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LWDviz\Renderer\GraphicsContext.h">
+      <Filter>src\LWDviz\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LWDviz\Renderer\RenderCommand.h">
+      <Filter>src\LWDviz\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LWDviz\Renderer\RendererAPI.h">
+      <Filter>src\LWDviz\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LWDviz\Renderer\Texture.h">
+      <Filter>src\LWDviz\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LWDviz\Renderer\VertexArray.h">
+      <Filter>src\LWDviz\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LWDviz\Renderer\buffer.h">
+      <Filter>src\LWDviz\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LWDviz\Renderer\renderer.h">
+      <Filter>src\LWDviz\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LWDviz\Renderer\shader.h">
+      <Filter>src\LWDviz\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\LWDviz\application.h">
       <Filter>src\LWDviz</Filter>
     </ClInclude>
@@ -89,6 +131,24 @@
     </ClInclude>
     <ClInclude Include="src\LWDviz\window.h">
       <Filter>src\LWDviz</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLBuffer.h">
+      <Filter>src\Platforms\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLContext.h">
+      <Filter>src\Platforms\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\Platforms\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLShader.h">
+      <Filter>src\Platforms\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLTexture.h">
+      <Filter>src\Platforms\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platforms\OpenGL\OpenGLVertexArray.h">
+      <Filter>src\Platforms\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platforms\Windows\WindowsInput.h">
       <Filter>src\Platforms\Windows</Filter>
@@ -1323,19 +1383,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\LWDviz\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\Platforms\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="src\LWDviz\Renderer\shader.h" />
-    <ClInclude Include="src\LWDviz\Renderer\buffer.h" />
-    <ClInclude Include="src\Platforms\OpenGL\OpenGLBuffer.h" />
-    <ClInclude Include="src\LWDviz\Renderer\renderer.h" />
-    <ClInclude Include="src\LWDviz\Renderer\VertexArray.h" />
-    <ClInclude Include="src\Platforms\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="src\LWDviz\Renderer\RendererAPI.h" />
-    <ClInclude Include="src\LWDviz\Renderer\RenderCommand.h" />
-    <ClInclude Include="src\Platforms\OpenGL\OpenGLRendererAPI.h" />
-    <ClInclude Include="src\LWDviz\Renderer\Camera.h" />
-    <ClInclude Include="src\LWDviz\Core\Timestep.h" />
+    <ClInclude Include="vendor\stb_image\stb_image.h">
+      <Filter>vendor\stb_image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\LWDviz\ImGui\ImGuiBuild.cpp">
@@ -1343,6 +1393,30 @@
     </ClCompile>
     <ClCompile Include="src\LWDviz\ImGui\ImGuiLayer.cpp">
       <Filter>src\LWDviz\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LWDviz\Renderer\Camera.cpp">
+      <Filter>src\LWDviz\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LWDviz\Renderer\RenderCommand.cpp">
+      <Filter>src\LWDviz\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LWDviz\Renderer\RendererAPI.cpp">
+      <Filter>src\LWDviz\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LWDviz\Renderer\Texture.cpp">
+      <Filter>src\LWDviz\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LWDviz\Renderer\VertexArray.cpp">
+      <Filter>src\LWDviz\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LWDviz\Renderer\buffer.cpp">
+      <Filter>src\LWDviz\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LWDviz\Renderer\renderer.cpp">
+      <Filter>src\LWDviz\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LWDviz\Renderer\shader.cpp">
+      <Filter>src\LWDviz\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\LWDviz\application.cpp">
       <Filter>src\LWDviz</Filter>
@@ -1356,6 +1430,24 @@
     <ClCompile Include="src\LWDviz\log.cpp">
       <Filter>src\LWDviz</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLBuffer.cpp">
+      <Filter>src\Platforms\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platforms\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\Platforms\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLShader.cpp">
+      <Filter>src\Platforms\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLTexture.cpp">
+      <Filter>src\Platforms\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platforms\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>src\Platforms\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platforms\Windows\WindowsInput.cpp">
       <Filter>src\Platforms\Windows</Filter>
     </ClCompile>
@@ -1365,16 +1457,8 @@
     <ClCompile Include="src\lwpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platforms\OpenGL\OpenGLContext.cpp" />
-    <ClCompile Include="src\LWDviz\Renderer\shader.cpp" />
-    <ClCompile Include="src\LWDviz\Renderer\buffer.cpp" />
-    <ClCompile Include="src\Platforms\OpenGL\OpenGLBuffer.cpp" />
-    <ClCompile Include="src\LWDviz\Renderer\renderer.cpp" />
-    <ClCompile Include="src\LWDviz\Renderer\VertexArray.cpp" />
-    <ClCompile Include="src\Platforms\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="src\LWDviz\Renderer\RendererAPI.cpp" />
-    <ClCompile Include="src\LWDviz\Renderer\RenderCommand.cpp" />
-    <ClCompile Include="src\Platforms\OpenGL\OpenGLRendererAPI.cpp" />
-    <ClCompile Include="src\LWDviz\Renderer\Camera.cpp" />
+    <ClCompile Include="vendor\stb_image\stb_image.cpp">
+      <Filter>vendor\stb_image</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

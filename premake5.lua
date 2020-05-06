@@ -17,6 +17,7 @@ IncludeDir["GLFW"] = "LWDviz/vendor/GLFW/include"
 IncludeDir["Glad"] = "LWDviz/vendor/Glad/include"
 IncludeDir["ImGui"] = "LWDviz/vendor/imgui"
 IncludeDir["glm"] = "LWDviz/vendor/glm"
+IncludeDir["stb_image"] = "LWDviz/vendor/stb_image"
 
 include "LWDviz/vendor/GLFW"
 include "LWDviz/vendor/Glad"
@@ -39,6 +40,8 @@ project "LWDviz"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
@@ -50,7 +53,8 @@ project "LWDviz"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links
