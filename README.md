@@ -1,2 +1,2 @@
 # LWDviz
-Lightweight Datavisualisation Tool
+Lightweight Datavisualisation Tool (Prototype)
